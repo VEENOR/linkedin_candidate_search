@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # linkedin_login.py
 
-# import web driver
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import parameters
