@@ -18,13 +18,13 @@ driver.get('https://www.linkedin.com/login')
 username = driver.find_element_by_id('username')
 
 # send_keys() to simulate key strokes
-username.send_keys('tadeubanzato@gmail.com')
+username.send_keys('<YOUR EMAIL COMES HERE>')
 
 # locate password form by_class_name
 password = driver.find_element_by_id('password')
 
 # send_keys() to simulate key strokes
-password.send_keys('Kongo-1978')
+password.send_keys('<YOUR PASSWORD>')
 
 # locate submit button by_class_name
 log_in_button = driver.find_element_by_class_name('btn__primary--large')

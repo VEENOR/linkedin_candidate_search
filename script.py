@@ -11,10 +11,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 
 # function to ensure all key data fields have a value
-# def validate_field(field):# if field is present pass if field:pass
-# # if field is not present print text else:
-#        field = 'No results'
-# return field
+def validate_field(field):# if field is present pass if field:pass
+    if field is 'none':
+        field = 'No results'
+        return field
+    else:
+        return field
 
 # specifies the path to the chromedriver.exe
 driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -55,10 +57,10 @@ for elem in elems:
 linkedin_urls
 sleep(0.5)
 
-# driver.get('https://www.linkedin.com/in/pauljgarner')
-# driver.page_source
+driver.get('https://www.linkedin.com/in/tadeubanzato')
+driver.page_source
 ########### OK
-header = ['Name', 'Job Title', 'Location', 'Link']
+header = ['Name', 'Job Title', 'Education', 'Location', 'Link']
 with open(parameters.file_name, 'a') as f:
     csv_writer = csv.writer(f)
     csv_writer.writerow(header) # write header
@@ -92,37 +94,14 @@ with open(parameters.file_name, 'a') as f:
         linkedin_url = driver.current_url
 
         currentJob = sel.xpath('//h3/text()').extract_first()
-        rows = [name,job_title,location,linkedin_url]
+        # validating if the fields exist on the profile
+        name = validate_field(name)
+        job_title = validate_field(job_title)
+        location = validate_field(location)
+        education = validate_field(education)
+        linkedin_url = validate_field(linkedin_url)
+
+        rows = [name,job_title,education,location,linkedin_url]
         print('Writing to CSV:', rows)
 
-        csv_writer.writerow([name,job_title,location,linkedin_url])
-
-
-
-
-# with open('candidates.csv', 'a') as f:
-#
-#     csv_writer.writerow(header) # write header
-#     for row in rows:
-#         csv_writer.writerow([name,job_title,location,linkedin_url])
-
-    # # defining new variable passing two parameters
-    # writer = csv.writer(open(parameters.file_name, 'a'))
-    #
-    # # writerow() method to the write to the file object
-    # writer.writerow(['Name','Job Title','Company','College', 'Location','URL'])
-    #
-    # # writing the corresponding values to the header
-    # writer.writerow([name.encode('utf-8'),
-    #                  job_title.encode('utf-8'),
-    #                  # company.encode('utf-8'),
-    #                  # college.encode('utf-8'),
-    #                  location.encode('utf-8'),
-    #                  linkedin_url.encode('utf-8')])
-
-   ##########################################
-
-
-
-# # terminates the application
-# driver.quit()
+        csv_writer.writerow([name,job_title,education,location,linkedin_url])
