@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# linkedin.py
+# linkedin_login.py
 
 # import web driver
 from selenium import webdriver

@@ -24,10 +24,7 @@ search_query.send_keys('site:linkedin.com/in/ AND "python developer" AND "London
 # .send_keys() to simulate the return key
 search_query.send_keys(Keys.RETURN)
 
-# div = driver.find_element_by_class_name('yuRUbf')
-# print(div.find_element_by_css_selector('a').get_attribute('href'))
-
-# Get all URLs
+# Get all Linkedin URLs
 elems = driver.find_elements_by_xpath("//a[@href]")
 linkedin_urls = []
 for elem in elems:
@@ -37,6 +34,6 @@ for elem in elems:
         linkedin_urls.append(elem.get_attribute("href"))
 
 
-# Gets the name of candidate
+# Gets the list name of candidate
 names_list = driver.find_elements_by_class_name('LC20lb')
 names_list = [url.text for url in names_list]
