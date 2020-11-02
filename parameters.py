@@ -9,5 +9,5 @@ search_query = 'site:linkedin.com/in/ AND "guide touristique" AND "paris"'
 file_name = 'candidates.csv'
 
 # login credentials
-linkedin_username = 'your email comes here'
-linkedin_password = 'password comes here'
+linkedin_username = 'YOUR EMAIL GOES HERE'
+linkedin_password = 'YOUR PASSWORD GOES HERE'

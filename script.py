@@ -12,7 +12,7 @@ from selenium.webdriver.common.keys import Keys
 
 # function to ensure all key data fields have a value
 def validate_field(field):# if field is present pass if field:pass
-    if field is 'none':
+    if field == 'none':
         field = 'No results'
         return field
     else:
@@ -60,7 +60,8 @@ sleep(0.5)
 driver.get('https://www.linkedin.com/in/tadeubanzato')
 driver.page_source
 ########### OK
-header = ['Name', 'Job Title', 'Education', 'Location', 'Link']
+
+header = ['Name', 'Job Title', 'Location', 'Link']
 with open(parameters.file_name, 'a') as f:
     csv_writer = csv.writer(f)
     csv_writer.writerow(header) # write header
@@ -98,10 +99,9 @@ with open(parameters.file_name, 'a') as f:
         name = validate_field(name)
         job_title = validate_field(job_title)
         location = validate_field(location)
-        education = validate_field(education)
         linkedin_url = validate_field(linkedin_url)
 
-        rows = [name,job_title,education,location,linkedin_url]
+        rows = [name,job_title,location,linkedin_url]
         print('Writing to CSV:', rows)
 
-        csv_writer.writerow([name,job_title,education,location,linkedin_url])
+        csv_writer.writerow([name,job_title,location,linkedin_url])

@@ -36,19 +36,7 @@ for elem in elems:
         #candidates = elem.get_attribute("href")
         linkedin_urls.append(elem.get_attribute("href"))
 
-nomes = driver.find_elements_by_class_name('LC20lb')
-print(driver.find_element_by_class_name('LC20lb').text)
 
 # Gets the name of candidate
 names_list = driver.find_elements_by_class_name('LC20lb')
 names_list = [url.text for url in names_list]
-# to print all elements within our list
-names_list
-linkedin_urls
-
-# print the first value
-linkedin_urls[0]
-listaLinks[0]
-
-# print the second value
-linkedin_urls[1]
