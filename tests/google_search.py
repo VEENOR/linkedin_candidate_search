@@ -28,9 +28,7 @@ search_query.send_keys(Keys.RETURN)
 elems = driver.find_elements_by_xpath("//a[@href]")
 linkedin_urls = []
 for elem in elems:
-    # linkedin_urls = driver.find_elements_by_class_name('LC20lb')
     if not 'google' in elem.get_attribute("href"):
-        #candidates = elem.get_attribute("href")
         linkedin_urls.append(elem.get_attribute("href"))
 
 
